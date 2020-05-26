@@ -1,0 +1,39 @@
+body {
+  background-color: #f1f2f3;
+}
+
+/* Navbar */
+.nav-link {
+  color: #fff !important;
+}
+
+.bg-danger {
+  background-color: #f00000 !important;
+}
+
+/* Card */
+.card-img-top {
+  border-top: 4px solid #f00000;
+  min-height: 200px !important;
+  max-height: 200px !important;
+}
+.card-img-top, 
+.card {
+  border-radius: 0px !important;
+}
+
+.card-title {
+  font-weight: bold;
+  color: #454d59;
+}
+
+.card-text {
+  font-weight: bold;
+  color: #727681;
+  font-size: small;
+}
+
+/* breadcrumb */
+.breadcrumb-item a{
+  color: #f00000;
+}
