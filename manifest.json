@@ -1,0 +1,22 @@
+{
+  "name": "Arsenal",
+  "short_name": "Arsenal",
+  "description": "Arsenal fc club",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#00897B",
+  "theme_color": "#00897B",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "./img/icon/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/icon/icon-192x192.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
