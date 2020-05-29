@@ -5,7 +5,7 @@ const dbPromised = idb.open("arsenal-fc-v1", 1, function (upgradeDb) {
   matchObjectStore.createIndex("id", "id", { unique: true });
 });
 
-function saveMatch(match) {
+const saveMatch = (match) => {
   dbPromised
     .then(function (db) {
       const tx = db.transaction("match_list", "readwrite");
@@ -14,11 +14,12 @@ function saveMatch(match) {
       return tx.complete;
     })
     .then(function () {
+      M.toast({ html: 'Data saved' })
       console.log("match berhasil di simpan.");
     });
 }
 
-function getAll() {
+const getAll = () => {
   return new Promise(function (resolve, reject) {
     dbPromised.then(function (db) {
       var tx = db.transaction("match_list", "readonly");
@@ -31,7 +32,7 @@ function getAll() {
   });
 }
 
-function deleteMatch(id) {
+const deleteMatch = (id) => {
   const dataId = parseInt(id)
   return new Promise(function (resolve, reject) {
     dbPromised.then(function (db) {
@@ -40,7 +41,7 @@ function deleteMatch(id) {
       store.delete(dataId)
       return tx.complete
     }).then(function (data) {
-      console.log('Item deleted')
+      location.reload();
     });
   })
 }

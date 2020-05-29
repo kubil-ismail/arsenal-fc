@@ -101,7 +101,7 @@ const setAllMatch = () => {
       let date = res.currentTarget.dataset.id
       let detail = getDetailMatch(date)
       detail.then(data => saveMatch(data.matches[0]))
-        .then(data => console.log(data))
+        .then(() => console.log(data))
     })
   })
 }

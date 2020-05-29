@@ -22,8 +22,9 @@ nav {
 
 /* Card */
 #match {
-  margin-top: 50px;
+  margin-top: 10px;
 }
+
 .card-image img{
   border-top: 4px solid #f00000;
   min-height: 180px;
