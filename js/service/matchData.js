@@ -24,7 +24,7 @@ const setMatch = () => {
           <div class="card">
             <div class="card-image">
               <img src="./img/${++key}.JPG">
-              <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+              <a class="btn-floating halfway-fab waves-effect waves-light red saved" data-id="${val.utcDate.substring(0, 10)}"><i class="material-icons">add</i></a>
             </div>
             <div class="card-content">
               <p>${val.utcDate.substring(0, 10)}</p>
@@ -35,6 +35,28 @@ const setMatch = () => {
       `
     })
     rowMatch.innerHTML = card
+  }).then(() => {
+    $('.saved').on('click', (res) => {
+      // Get Date
+      let date = res.currentTarget.dataset.id
+      let detail = getDetailMatch(date)
+      detail.then(data => saveMatch(data.matches[0]))
+        .then(data => console.log(data))
+    })
+  })
+}
+
+// Get Detail Match
+const getDetailMatch = (date) => {
+  return new Promise((resolve, reject) => {
+    fetch(`${url}/teams/57/matches?dateFrom=${date}&dateTo=${date}`, {
+      headers: {
+        'X-Auth-Token': 'b4546d523461485cb8555904e0009dda'
+      }
+    })
+      .then(response => response.json())
+      .then(data => resolve(data))
+      .catch(err => reject(err))
   })
 }
 
@@ -62,7 +84,7 @@ const setAllMatch = () => {
           <div class="card">
             <div class="card-image">
               <img src="./img/${Math.floor(Math.random() * 4) + 1}.JPG">
-              <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+              <a class="btn-floating halfway-fab waves-effect waves-light red saved" data-id="${val.utcDate.substring(0, 10)}"><i class="material-icons">add</i></a>
             </div>
             <div class="card-content">
               <p>${val.utcDate.substring(0, 10)}</p>
@@ -73,5 +95,13 @@ const setAllMatch = () => {
       `
     })
     rowMatch.innerHTML = card
+  }).then(() => {
+    $('.saved').on('click', (res) => {
+      // Get Date
+      let date = res.currentTarget.dataset.id
+      let detail = getDetailMatch(date)
+      detail.then(data => saveMatch(data.matches[0]))
+        .then(data => console.log(data))
+    })
   })
 }
