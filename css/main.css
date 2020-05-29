@@ -1,0 +1,53 @@
+/* All */
+body {
+  background-color: #f1f2f3;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+main {
+  flex: 1 0 auto;
+}
+.red {
+  background-color: #f00000 !important;
+  color: white;
+}
+
+/* Navbar */
+nav {
+  background-color: #f00000;
+}
+
+/* Card */
+#match {
+  margin-top: 50px;
+}
+.card-image img{
+  border-top: 4px solid #f00000;
+  min-height: 180px;
+  max-height: 180px;
+}
+.card-content p {
+  font-weight: bolder;
+  font-size: 20px;
+  color: #454d59;
+}
+.card-content small {
+  font-weight: bolder;
+  font-size: 12px;
+  color: #727697;
+}
+
+/* Table */
+#standing {
+  margin-top: 50px;
+}
+thead tr td,
+.no {
+  font-weight: bold;
+}
+
+/* Footer */
+footer {
+  margin-top: 50px;
+}
