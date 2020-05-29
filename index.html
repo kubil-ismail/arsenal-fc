@@ -22,7 +22,7 @@
           </a>
           <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
-            <li><a href="index.html">Home</a></li>
+            <li class="active"><a href="index.html">Home</a></li>
             <li><a href="match.html">Match</a></li>
             <li><a href="saved.html">Saved</a></li>
           </ul>
@@ -31,7 +31,7 @@
     </nav>
 
     <ul class="sidenav" id="mobile-demo">
-      <li><a href="index.html">Home</a></li>
+      <li class="active"><a href="index.html">Home</a></li>
       <li><a href="match.html">Match</a></li>
       <li><a href="saved.html">Saved</a></li>
     </ul>
@@ -44,38 +44,38 @@
     </div>
 
     <div class="container">
+      <!-- Card -->
       <div id="match" class="row">
         <!-- Load match -->
         <div class="progress red">
           <div class="indeterminate grey"></div>
         </div>
       </div>
-    </div>
-
-    <div id="standing" class="container">
-      <table class="z-depth-2">
-        <thead>
-          <tr class="red">
-            <td>No</td>
-            <td width="80%">Club</td>
-            <td>Win</td>
-            <td>Draw</td>
-            <td>Lost</td>
-            <td>Point</td>
-          </tr>
-        </thead>
-      
-        <tbody class="white" id="standing-row">
-          <tr>
-            <td class="no" colspan="6">
-              <!-- Load standing -->
-              <div class="progress red">
-                <div class="indeterminate grey"></div>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <!-- Table -->
+      <div id="standing">
+        <table class="z-depth-2">
+          <thead>
+            <tr class="red">
+              <td>No</td>
+              <td width="80%">Club</td>
+              <td>Win</td>
+              <td>Draw</td>
+              <td>Lost</td>
+              <td>Point</td>
+            </tr>
+          </thead>
+          <tbody class="white" id="standing-row">
+            <tr>
+              <td class="no" colspan="6">
+                <!-- Load standing -->
+                <div class="progress red">
+                  <div class="indeterminate grey"></div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </main>
     
