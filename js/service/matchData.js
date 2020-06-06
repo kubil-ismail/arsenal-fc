@@ -16,10 +16,45 @@ const getMatch = new Promise((resolve, reject) => {
 const setMatch = () => {
   const rowMatch = document.getElementById('match')
   let card = ''
-
-  getMatch.then(data => {
-    data.matches.forEach((val, key) => {
-      card += `
+  
+  if ('caches' in window) {
+    
+    caches.match(`${url}/teams/57/matches?limit=4`).then(function (response) {
+      if (response) {
+        console.log('pakai dari cache')
+        response.json().then(function (data) {
+          data.matches.forEach((val, key) => {
+            card += `
+            <div class="col s12 m4 l3">
+              <div class="card">
+                <div class="card-image">
+                  <img src="./img/${++key}.JPG">
+                  <a class="btn-floating halfway-fab waves-effect waves-light red saved" data-id="${val.utcDate.substring(0, 10)}"><i class="material-icons">add</i></a>
+                </div>
+                <div class="card-content">
+                  <p>${val.utcDate.substring(0, 10)}</p>
+                  <small>${val.competition.name}</small>
+                </div>
+              </div>
+            </div>`
+          })
+          rowMatch.innerHTML = card
+        }).then(() => {
+          $('.saved').on('click', (res) => {
+            // Get Date
+            let date = res.currentTarget.dataset.id
+            let detail = getDetailMatch(date)
+            detail.then(data => saveMatch(data.matches[0]))
+              .then(data => console.log(data))
+          })
+        })
+      }
+    })
+  } else {
+    console.log('pakai dari internet')
+    getMatch.then(data => {
+      data.matches.forEach((val, key) => {
+        card += `
         <div class="col s12 m4 l3">
           <div class="card">
             <div class="card-image">
@@ -33,17 +68,19 @@ const setMatch = () => {
           </div>
         </div>
       `
+      })
+      rowMatch.innerHTML = card
+    }).then(() => {
+      $('.saved').on('click', (res) => {
+        // Get Date
+        let date = res.currentTarget.dataset.id
+        let detail = getDetailMatch(date)
+        detail.then(data => saveMatch(data.matches[0]))
+          .then(data => console.log(data))
+      })
     })
-    rowMatch.innerHTML = card
-  }).then(() => {
-    $('.saved').on('click', (res) => {
-      // Get Date
-      let date = res.currentTarget.dataset.id
-      let detail = getDetailMatch(date)
-      detail.then(data => saveMatch(data.matches[0]))
-        .then(data => console.log(data))
-    })
-  })
+  }
+
 }
 
 // Get Detail Match
