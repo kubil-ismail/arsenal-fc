@@ -1,0 +1,23 @@
+{
+  "name": "Arsenal",
+  "gcm_sender_id": "161537571105",
+  "short_name": "Arsenal",
+  "description": "Arsenal fc club",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#f1f2f3",
+  "theme_color": "#f00000",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "./img/icon/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/icon/icon-192x192.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

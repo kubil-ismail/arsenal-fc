@@ -1,0 +1,24 @@
+{
+  "name": "arsenal-fc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "dependencies": {
+    "web-push": "^3.4.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kubil-ismail/arsenal-fc.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kubil-ismail/arsenal-fc/issues"
+  },
+  "homepage": "https://github.com/kubil-ismail/arsenal-fc#readme"
+}
